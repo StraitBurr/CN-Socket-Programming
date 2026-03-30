@@ -35,7 +35,7 @@ def logic(connectionSocket):
             result = ""
             for name, score in leaderboard_sorted.items():
                    result += name + ": " + str(score) + "\n"
-            print(result.encode())
+            print(result)
             connectionSocket.send(result.encode())
 
         elif(arr[0] == "EXIT"):
@@ -46,11 +46,11 @@ def logic(connectionSocket):
     connectionSocket.close()
 
 
-servername = "localhost"
+servername = "0.0.0.0"
 serverport = 12000
 serverSocket = socket(AF_INET,SOCK_STREAM)
 serverSocket.bind((servername,serverport))
-serverSocket.listen(1)
+serverSocket.listen(5)
 print("The server is ready to receive")
 
 leaderboard = {}
